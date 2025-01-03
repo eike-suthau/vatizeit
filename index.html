@@ -30,11 +30,11 @@
         document.getElementById("dateTime").innerHTML = date;
         }
         window.onload = function() {
-            document.documentElement.requestFullscreen();
             checkDate();
             displayDate();
             setTimeout(function() {
                 location.reload();
+                document.documentElement.requestFullscreen();
             }, 10000);
         };
     </script>    
