@@ -16,10 +16,10 @@
             var today = now.toLocaleDateString('de-DE', options);
             var tomorrow = (now + 1).toLocaleDateString('de-DE', options);
             var dates = ["04.01.2025", "25.12.2023", "31.12.2023"]; // Add your dates here
-            if (dates.includes(date)) {
+            if (dates.includes(today)) {
                 document.getElementById("opthello").innerHTML = "Abholung HEUTE nach dem Abendbrot";
             } else {
-                if (dates.includes(date + 1)) {
+                if (dates.includes(tomorrow)) {
                     document.getElementById("opthello").innerHTML = "Abholung MORGEN nach dem Abendbrot";
                 } else {
                     document.getElementById("opthello").innerHTML = "";
