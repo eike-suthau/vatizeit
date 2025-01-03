@@ -1,5 +1,5 @@
 ---
 title: Welcome to my blog test
-date: wtf
+date: 2025-01-03
 ---
 
