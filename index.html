@@ -44,13 +44,9 @@
             displayDate();            
         };
         setInterval(function() {
-            $.ajax({
-                url : "favicon.ico",
-                type: "HEAD"
-            })
-            .done(function() {
+            if (navigator.onLine) {
                 location.reload();
-            });
+            }
         }, 10000);
     </script>    
 </head>
