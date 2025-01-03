@@ -18,7 +18,11 @@
             if (dates.includes(date)) {
                 document.getElementById("opthello").innerHTML = "Abholung nach dem Abendbrot";
             } else {
-                document.getElementById("opthello").innerHTML = "";
+                if (dates.includes(date + 1)) {
+                    document.getElementById("opthello").innerHTML = "Abholung nach dem Abendbrot";
+                } else {
+                    document.getElementById("opthello").innerHTML = "";
+                }
             }
         }
         function displayDate() {
