@@ -11,10 +11,12 @@
     </style>
     <script>        
         function checkDate() {
-            var now = new Date();
+            var today = new Date();
+            var tomorrow = new Date();
+            var tomorrow.setDate(tomorrow.getDate() + 1);
             var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-            var today = now.toLocaleDateString('de-DE', options);
-            var tomorrow = (now + 1).toLocaleDateString('de-DE', options);
+            today = today.toLocaleDateString('de-DE', options);
+            tomorrow = tomorrow.toLocaleDateString('de-DE', options);
             var dates = ["04.01.2025", "25.12.2023", "31.12.2023"]; // Add your dates here
             if (dates.includes(today)) {
                 document.getElementById("opthello").innerHTML = "Abholung HEUTE nach dem Abendbrot";
