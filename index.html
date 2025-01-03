@@ -41,11 +41,17 @@
         }
         window.onload = function() {
             checkDate();
-            displayDate();
-            setTimeout(function() {
-                location.reload();
-            }, 10000);
+            displayDate();            
         };
+        setInterval(function() {
+            $.ajax({
+                url : "favicon.ico",
+                type: "HEAD"
+            })
+            .done(function() {
+                location.reload();
+            });
+        }, 10000);
     </script>    
 </head>
 
