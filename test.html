@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<head>
+    <title>Date</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>        
+        function checkDate() {
+            var now = new Date();
+            var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+            var date = now.toLocaleDateString('de-DE', options);
+            var dates = ["03.01.2025", "25.12.2023", "31.12.2023"]; // Add your dates here
+            
+            
+            if (dates.includes(date)) {
+                document.getElementById("opthello").innerHTML = "Abholung nach dem Abendbrot";
+            } else {
+                document.getElementById("opthello").innerHTML = "";
+            }
+        }
+        function displayDate() {
+        var now = new Date();
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var date = now.toLocaleDateString('de-DE', options);
+        document.getElementById("dateTime").innerHTML = date;
+        }
+        window.onload = function() {
+            checkDate();
+            displayDate();
+            setTimeout(function() {
+                location.reload();
+            }, 10000);
+        };
+    </script>    
+</head>
+
+<body>
+    <h1 style="font-size: 4em; width: 100%; text-align: center; font-family: Arial, sans-serif; font-weight: bold;">Heute ist:</h1>
+    <p id="dateTime" style="font-size: 4em; width: 100%; text-align: center; font-family: Arial, sans-serif; font-weight: bold;"></p>
+    <p id="opthello" style="font-size: 4em; width: 100%; text-align: center; font-family: Arial, sans-serif; font-weight: bold;"></p>
+</body>
+</html>
