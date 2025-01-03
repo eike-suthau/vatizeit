@@ -11,20 +11,25 @@
     </style>
     <script>        
         function checkDate() {
-            var today = new Date();
-            var tomorrow = new Date();
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-            today = today.toLocaleDateString('de-DE', options);
-            tomorrow = tomorrow.toLocaleDateString('de-DE', options);
             var dates = ["03.01.2025", "25.12.2023", "31.12.2023"]; // Add your dates here
-            if (dates.includes(today)) {
+            var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+            var date = new Date();                                    
+            var day = date.toLocaleDateString('de-DE', options);                        
+            if (dates.includes(day)) {
                 document.getElementById("opthello").innerHTML = "Abholung HEUTE nach dem Abendbrot";
             } else {
-                if (dates.includes(tomorrow)) {
+                date.setDate(date.getDate() + 1);
+                day = date.toLocaleDateString('de-DE', options);                        
+                if (dates.includes(day)) {
                     document.getElementById("opthello").innerHTML = "Abholung MORGEN nach dem Abendbrot";
                 } else {
-                    document.getElementById("opthello").innerHTML = "";
+                    date.setDate(date.getDate() + 1);
+                    day = date.toLocaleDateString('de-DE', options);
+                    if (dates.includes(day)) {
+                        document.getElementById("opthello").innerHTML = "Abholung ÜBERMORGEN nach dem Abendbrot";
+                    } else {
+                        document.getElementById("opthello").innerHTML = "";
+                    }
                 }
             }
         }
