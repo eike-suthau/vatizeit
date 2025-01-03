@@ -1,5 +1,5 @@
 ---
 title: Welcome to my blog test
-wtf
+date: wtf
 ---
 
