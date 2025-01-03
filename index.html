@@ -14,7 +14,7 @@
             var now = new Date();
             var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
             var date = now.toLocaleDateString('de-DE', options);
-            var dates = ["03.01.2025", "25.12.2023", "31.12.2023"]; // Add your dates here
+            var dates = ["04.01.2025", "25.12.2023", "31.12.2023"]; // Add your dates here
             if (dates.includes(date)) {
                 document.getElementById("opthello").innerHTML = "Abholung HEUTE nach dem Abendbrot";
             } else {
