@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
-javascript: (function(){document.querySelector("body").requestFullscreen();})();
 <head>
     <title>Date</title>
     <style>
@@ -31,6 +30,7 @@ javascript: (function(){document.querySelector("body").requestFullscreen();})();
         document.getElementById("dateTime").innerHTML = date;
         }
         window.onload = function() {
+            document.querySelector("body").requestFullscreen();
             checkDate();
             displayDate();
             setTimeout(function() {
