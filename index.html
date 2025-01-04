@@ -36,11 +36,9 @@
         function displayDate() {
         var now = new Date();
         var options = { month: 'long', day: 'numeric' };
-        var options2 = { weekday: 'long'};
-        var date = now.toLocaleDateString('de-DE', options2) + " der " + now.toLocaleDateString('de-DE', options) ;
-        document.getElementById("dateTime").innerHTML = date;
-        var time = now.toLocaleTimeString();
-        document.getElementById("currTime").innerHTML = time;            
+        var options2 = { weekday: 'long'};        
+        document.getElementById("dateTime").innerHTML = now.toLocaleDateString('de-DE', options2) + " der " + now.toLocaleDateString('de-DE', options) ;
+        document.getElementById("currTime").innerHTML = now.toLocaleTimeString();;            
         }
         window.onload = function() {
             checkDate();
