@@ -39,6 +39,7 @@
         var options2 = { weekday: 'long'};
         var date = now.toLocaleDateString('de-DE', options2) + " der " + now.toLocaleDateString('de-DE', options) ;
         document.getElementById("dateTime").innerHTML = date;
+        document.getElementById("currTime").innerHTML = now.toLocaleTimeString();            
         }
         window.onload = function() {
             checkDate();
@@ -56,5 +57,6 @@
     <h1 style="font-size: 4em; width: 100%; text-align: center; font-family: Arial, sans-serif; font-weight: bold;">Heute ist:</h1>
     <p id="dateTime" style="font-size: 4em; width: 100%; text-align: center; font-family: Arial, sans-serif; font-weight: bold;"></p>
     <p id="opthello" style="font-size: 4em; width: 100%; text-align: center; font-family: Arial, sans-serif; font-weight: bold;"></p>
+    <p id="currTime" style="font-size: 0em; width: 100%; text-align: right; font-family: Arial, sans-serif;"></p>
 </body>
 </html>
