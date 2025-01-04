@@ -39,7 +39,8 @@
         var options2 = { weekday: 'long'};
         var date = now.toLocaleDateString('de-DE', options2) + " der " + now.toLocaleDateString('de-DE', options) ;
         document.getElementById("dateTime").innerHTML = date;
-        document.getElementById("currTime").innerHTML = now.toLocaleTimeString();            
+        var time = now.toLocaleTimeString();
+        document.getElementById("currTime").innerHTML = time;            
         }
         window.onload = function() {
             checkDate();
