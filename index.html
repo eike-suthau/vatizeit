@@ -35,7 +35,7 @@
         }
         function displayDate() {
         var now = new Date();
-        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        var options = { weekday: 'long', month: 'long', day: 'numeric' };
         var date = now.toLocaleDateString('de-DE', options);
         document.getElementById("dateTime").innerHTML = date;
         }
