@@ -11,11 +11,15 @@
     </style>
     <script>        
         function checkDate() {
-            var dates = ["04.01.2025", "25.12.2023", "31.12.2023"]; // Add your dates here
+            const url = "https://eike-suthau.github.io/vatizeit/date.txt"
+            var mydate = ""
+            fetch(url)
+               .then( mydate => r.text() )
+            
             var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
             var date = new Date();                                    
             var day = date.toLocaleDateString('de-DE', options);                        
-            if (dates.includes(day)) {
+            if (mydate == day) {
                 document.getElementById("opthello").innerHTML = "Abholung HEUTE nach dem Abendbrot";
             } else {
                 date.setDate(date.getDate() + 1);
