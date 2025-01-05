@@ -12,9 +12,9 @@
     <script>        
         function checkDate() {
             const url = "https://eike-suthau.github.io/vatizeit/date.txt"
-            var mydate = ""
-            fetch(url)
-               .then( mydate => r.text() )
+            var mydate = "05.01-2025"
+            //fetch(url)
+            //   .then( mydate => r.text() )
             
             var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
             var date = new Date();                                    
@@ -24,12 +24,12 @@
             } else {
                 date.setDate(date.getDate() + 1);
                 day = date.toLocaleDateString('de-DE', options);                        
-                if (dates.includes(day)) {
+                if (mydate == day) {
                     document.getElementById("opthello").innerHTML = "Abholung MORGEN nach dem Abendbrot";
                 } else {
                     date.setDate(date.getDate() + 1);
                     day = date.toLocaleDateString('de-DE', options);
-                    if (dates.includes(day)) {
+                    if (mydate == day) {
                         document.getElementById("opthello").innerHTML = "Abholung ÜBERMORGEN nach dem Abendbrot";
                     } else {
                         document.getElementById("opthello").innerHTML = "";
