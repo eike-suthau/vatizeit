@@ -49,10 +49,12 @@
             displayDate();            
         };
         setInterval(function() {
-            if (navigator.onLine) {
-                location.reload();
-            }
-        }, 300000);
+            checkDate();
+            displayDate(); 
+            //if (navigator.onLine) {
+            //    location.reload();
+            //}
+        }, 5000);
     </script>    
 </head>
 
