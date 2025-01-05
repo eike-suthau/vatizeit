@@ -19,17 +19,17 @@
             var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
             var date = new Date();                                    
             var day = date.toLocaleDateString('de-DE', options);                        
-            if (mydate == day) {
+            if (mydate.includes(day)) {
                 document.getElementById("opthello").innerHTML = "Abholung HEUTE nach dem Abendbrot";
             } else {
                 date.setDate(date.getDate() + 1);
                 day = date.toLocaleDateString('de-DE', options);                        
-                if (mydate == day) {
+                if (mydate.includes(day)) {
                     document.getElementById("opthello").innerHTML = "Abholung MORGEN nach dem Abendbrot";
                 } else {
                     date.setDate(date.getDate() + 1);
                     day = date.toLocaleDateString('de-DE', options);
-                    if (mydate == day) {
+                    if (mydate.includes(day)) {
                         document.getElementById("opthello").innerHTML = "Abholung ÜBERMORGEN nach dem Abendbrot";
                     } else {
                         document.getElementById("opthello").innerHTML = "";
