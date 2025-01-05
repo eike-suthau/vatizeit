@@ -11,36 +11,33 @@
     </style>
     <script>        
         function checkDate() {
-            
-            const url = "https://eike-suthau.github.io/vatizeit/date.txt"
-            var mydate = "05.01.2025"
-
-            fetch(url)
-               .then(response => response.text())
-               .then((response) => {
-                   let mydate = response;
-               })
-            
-            var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-            var date = new Date();                                    
-            var day = date.toLocaleDateString('de-DE', options);                        
-            if (mydate.includes(day)) {
-                document.getElementById("opthello").innerHTML = "Abholung HEUTE nach dem Abendbrot";
-            } else {
-                date.setDate(date.getDate() + 1);
-                day = date.toLocaleDateString('de-DE', options);                        
+            function reqListener (mydate) {
+                console.log(mydate + "a");
+                //var mydate = this.responseText;                
+                var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+                var date = new Date();                                    
+                var day = date.toLocaleDateString('de-DE', options);                        
                 if (mydate.includes(day)) {
-                    document.getElementById("opthello").innerHTML = "Abholung MORGEN nach dem Abendbrot";
+                    document.getElementById("opthello").innerHTML = "Abholung HEUTE nach dem Abendbrot";
                 } else {
                     date.setDate(date.getDate() + 1);
-                    day = date.toLocaleDateString('de-DE', options);
+                    day = date.toLocaleDateString('de-DE', options);                        
                     if (mydate.includes(day)) {
-                        document.getElementById("opthello").innerHTML = "Abholung ÜBERMORGEN nach dem Abendbrot";
+                        document.getElementById("opthello").innerHTML = "Abholung MORGEN nach dem Abendbrot";
                     } else {
-                        document.getElementById("opthello").innerHTML = "";
+                        date.setDate(date.getDate() + 1);
+                        day = date.toLocaleDateString('de-DE', options);
+                        if (mydate.includes(day)) {
+                            document.getElementById("opthello").innerHTML = "Abholung ÜBERMORGEN nach dem Abendbrot";
+                        } else {
+                            document.getElementById("opthello").innerHTML = "";
+                        }
                     }
-                }
+                }    
             }
+            fetch("https://eike-suthau.github.io/vatizeit/date.txt", {cache: "no-store"})
+            .then(res => res.text())
+            .then(text => reqListener(text));            
         }
         function displayDate() {
         var now = new Date();
