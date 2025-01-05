@@ -11,10 +11,15 @@
     </style>
     <script>        
         function checkDate() {
+            
             const url = "https://eike-suthau.github.io/vatizeit/date.txt"
             var mydate = "05.01.2025"
+
             fetch(url)
-               .then( mydate => r.text() )
+               .then(response => response.text())
+               .then((response) => {
+                   let mydate = response;
+               })
             
             var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
             var date = new Date();                                    
